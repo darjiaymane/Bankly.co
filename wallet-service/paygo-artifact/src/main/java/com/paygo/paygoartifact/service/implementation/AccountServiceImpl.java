@@ -13,8 +13,6 @@ import com.paygo.paygoartifact.repository.AccountRepository;
 import com.paygo.paygoartifact.service.AccountService;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import net.bytebuddy.implementation.bytecode.Throw;
 
 @Service
 @AllArgsConstructor
