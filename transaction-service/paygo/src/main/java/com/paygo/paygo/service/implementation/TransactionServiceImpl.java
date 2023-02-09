@@ -32,6 +32,8 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public String createTransaction ( TransactionDto transactionDto ) {
+
+        //TODO Refactoring for this method
         WalletDto walletDto;
 
         Boolean transactionDtoIsValide = false;
@@ -49,8 +51,6 @@ public class TransactionServiceImpl implements TransactionService {
             return "transaction is null or empty";
         }
 
-
-        //Boolean walletIsValide = false;
 
         if ( transactionDtoIsValide) {
             walletDto = walletService.getWalletByCin ( transactionDto.getCin ( ) ); //TODO CREATE METHOD IN WALLET SERVICE GETWALLETBYCIN
