@@ -1,9 +1,6 @@
 package com.paygo.paygoartifact.restApi;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.websocket.server.PathParam;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.paygo.paygoartifact.dto.AccountDto;
 import com.paygo.paygoartifact.dto.TransactionDto;
-import com.paygo.paygoartifact.entity.Account;
+import com.paygo.paygoartifact.entity.Wallet;
 import com.paygo.paygoartifact.service.AccountService;
 
 
@@ -29,8 +26,14 @@ import lombok.AllArgsConstructor;
 public class AccountController {
     private final AccountService accountService;
 
+    @PutMapping("/deposit")
+    public String deposit(@RequestBody AccountDto accountDto){
+        int x= 1 + 1;
+        return accountService.deposit(accountDto);
+    }
+
     @GetMapping
-    public List<Account> getAllAccount(){
+    public List< Wallet > getAllAccount(){
         return this.accountService.getAllAccounts();
     }
 
@@ -40,13 +43,8 @@ public class AccountController {
     }
 
     @GetMapping("/{cin}")
-    public ResponseEntity<AccountDto> getAccountByCIN(@PathVariable String cin) {
-        return ResponseEntity.ok(this.accountService.getAccountByCIN(cin));
-    }
-
-    @PutMapping("/deposit")
-    public ResponseEntity<String> deposit(@RequestBody TransactionDto transactionDto) {
-        return ResponseEntity.ok(this.accountService.deposit(transactionDto));
+    public AccountDto getAccountByCIN(@PathVariable String cin) {
+        return this.accountService.getAccountByCIN(cin);
     }
 
     @PutMapping("/withdraw")
