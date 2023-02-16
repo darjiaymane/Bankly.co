@@ -53,7 +53,7 @@ public class AccountServiceImpl implements AccountService{
 
                 this.accountRepository.save( wallet );
                 return "Wallet has ben created";
-            } 
+            }
         } catch (Exception exception){
             return exception.getMessage().toString();
         }

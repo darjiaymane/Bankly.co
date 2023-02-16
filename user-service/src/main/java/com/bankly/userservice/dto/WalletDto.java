@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 public class WalletDto implements Serializable {
     private String cinClient;
-
+    private Double balance;
+    private Double overdraftLimit;
+    private Boolean status;
 
     public WalletDto(String cinClient, Double balance) {
         this.cinClient = cinClient;
@@ -23,6 +25,30 @@ public class WalletDto implements Serializable {
     }
 
     public WalletDto() {
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public Double getOverdraftLimit() {
+        return overdraftLimit;
+    }
+
+    public void setOverdraftLimit(Double overdraftLimit) {
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @Override

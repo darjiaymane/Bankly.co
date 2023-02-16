@@ -8,10 +8,10 @@ spring:
             - Path=/api/transaction/**
           filters:
             - AuthFilter
-        - id: transaction-service
+        - id: wallet-service
           uri: ${WALLET_SERVICE_URL:http://localhost:8081}
           predicates:
-            - Path=/api/wallet/**
+            - Path=/api/account/**
           filters:
             - AuthFilter
         - id: user-service

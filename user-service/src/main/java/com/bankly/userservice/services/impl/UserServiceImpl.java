@@ -65,6 +65,8 @@ public class UserServiceImpl implements IUserAppService {
        }else {
            WalletDto walletDto = new WalletDto();
            walletDto.setCinClient(user.getCin());
+           walletDto.setBalance(0D);
+           walletDto.setStatus(true);
            walletProxy.addWallet(walletDto);
            user.setPassword(passwordEncoder.encode(user.getPassword()));
            userAppRepository.save(user);
