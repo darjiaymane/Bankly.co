@@ -6,3 +6,15 @@ spring:
           uri: ${TRANSACTION_SERVICE_URL:http://localhost:8082}
           predicates:
             - Path=/api/transaction/**
+          filters:
+            - AuthFilter
+        - id: transaction-service
+          uri: ${WALLET_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/api/wallet/**
+          filters:
+            - AuthFilter
+        - id: user-service
+          uri: ${USER_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/api/v1/user/**
