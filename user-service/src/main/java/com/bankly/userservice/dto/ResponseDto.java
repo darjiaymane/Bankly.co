@@ -7,12 +7,12 @@ public class ResponseDto implements Serializable {
 
     private String message;
 
-    private Object data;
+    private Object token;
 
-    public ResponseDto(String status, String message, Object data) {
+    public ResponseDto(String status, String message, Object token) {
         this.status = status;
         this.message = message;
-        this.data = data;
+        this.token = token;
     }
 
     public ResponseDto(String status, String message) {
@@ -37,10 +37,10 @@ public class ResponseDto implements Serializable {
     }
 
     public Object getData() {
-        return data;
+        return token;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setData(Object token) {
+        this.token = token;
     }
 }

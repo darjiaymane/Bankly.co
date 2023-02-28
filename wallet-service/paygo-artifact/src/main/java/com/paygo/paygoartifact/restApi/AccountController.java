@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 import com.paygo.paygoartifact.dto.AccountDto;
 import com.paygo.paygoartifact.dto.TransactionDto;
@@ -23,6 +25,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/account")
 @AllArgsConstructor
+@CrossOrigin
 public class AccountController {
     private final AccountService accountService;
 

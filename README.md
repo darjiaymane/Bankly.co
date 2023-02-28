@@ -30,3 +30,45 @@ o  Authentication + Authorization: Spring Security JWT
 o  Service Discovery : Eureka
 o  CI/CD : Sonar + Jenkins | GitHub Actions
 o  Deployment: Docker
+
+# API (with Gateway)
+
+## Login 
+   o http://localhost:8080/api/v1/user/login
+
+   o POST :
+        {
+            "email": "Tayeb@gmail.com",
+            "password": "1234"
+        }
+
+## Register
+    o http://localhost:8080/api/v1/user/register
+
+    o POST : 
+        {
+            "firstName": "Aymane",
+            "lastName": "Darji",
+            "cin": "LK1234",
+            "email": "example@gmail.com",
+            "phone": "0606060606",
+            "password": "1234"
+        }
+
+## Get All Wallet 
+    o http://localhost:8080/api/account/
+
+    o GET with JWT
+
+## Get Wallet by cin
+    o http://localhost:8080/api/account/{CIN}
+
+    o GET with JWT
+
+## Get All Transactions
+
+    o  http://localhost:8080/api/transaction/
+
+    o GET with JWT
+
+## DEPOSIT

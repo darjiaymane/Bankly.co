@@ -57,7 +57,7 @@ public class JwtUtile {
     }
 
     public ResponseDto createToken(Map<String,Object> claims, UserApp userDetails){
-
+        claims.put("cin", userDetails.getCin());
         return new ResponseDto("success","token",Jwts.builder().setClaims(claims)
                 .setSubject(userDetails.getEmail())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
