@@ -26,7 +26,11 @@ public class TransactionController {
 
     @PostMapping
     public ResponseEntity<String> createTransaction(@RequestBody TransactionDto  transactionDto) {
-        int x = 1 + 1;
         return ResponseEntity.ok( this.transactionService.createTransaction(transactionDto));
+    }
+
+    @GetMapping("/{cin}")
+    public List<Transaction> getTransactionsByCin(@PathVariable String cin){
+        return transactionService.getTransactionsByCin(cin);
     }
 }

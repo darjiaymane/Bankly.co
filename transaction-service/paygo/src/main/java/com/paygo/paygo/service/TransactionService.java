@@ -8,4 +8,5 @@ import com.paygo.paygo.entity.Transaction;
 public interface TransactionService {
     List<Transaction>  getAll();
     String createTransaction(TransactionDto  transactionDto);
+    List<Transaction> getTransactionsByCin(String cin);
 }

@@ -97,4 +97,9 @@ public class TransactionServiceImpl implements TransactionService {
         return "else";
     }
 
+    @Override
+    public List<Transaction> getTransactionsByCin(String cin) {
+        return transactionRepository.findByCin(cin);
     }
+
+}
