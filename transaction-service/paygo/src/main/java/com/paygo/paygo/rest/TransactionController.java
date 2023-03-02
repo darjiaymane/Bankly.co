@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/transaction")
 @AllArgsConstructor
+@CrossOrigin()
 public class TransactionController {
     private final TransactionService transactionService;
 

@@ -1,5 +1,6 @@
 package com.paygo.paygo.service.implementation;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.paygo.paygo.dto.WalletDto;
@@ -62,6 +63,10 @@ public class TransactionServiceImpl implements TransactionService {
                         if ( transactionDto.getKind() == Kind.RETRAIT && transactionDto.getAmount ( ) <= walletDto.getBalance ( ) && transactionDto.getAmount ( ) <= walletDto.getOverdraftLimit ( ) ) {
                             walletDto.setBalance ( walletDto.getBalance ( ) - transactionDto.getAmount ( ) );
                             try {
+                                Transaction transaction = new Transaction(null, transactionDto.getAmount(), transactionDto.getKind(), LocalDate.now(), transactionDto.getCin());
+                                
+                                transactionRepository.save(transaction);
+
                                 walletService.updateWallet ( walletDto );
                                 return "Success";
                             } catch (Exception exception) {
@@ -76,6 +81,10 @@ public class TransactionServiceImpl implements TransactionService {
                         if (transactionDto.getAmount() != null && transactionDto.getAmount() > 0) {
                             walletDto.setBalance ( walletDto.getBalance ( ) + transactionDto.getAmount ( ) );
                             try {
+                                Transaction transaction = new Transaction(null, transactionDto.getAmount(), transactionDto.getKind(), LocalDate.now(), transactionDto.getCin());
+                                
+                                transactionRepository.save(transaction);
+                                
                                 walletService.updateWallet ( walletDto );
                                 return "Success";
                             } catch (Exception exception) {
